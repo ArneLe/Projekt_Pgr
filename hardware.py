@@ -3,7 +3,7 @@ import board
 import neopixel
 
 
-ORDER = neopixel.GRB  /Die LEDS brachen Grün Rot Blau reinfolge 
+ORDER = neopixel.GRB  //Die LEDS brachen Grün Rot Blau reinfolge
 
 pixels = neopixel.NeoPixel(board.D18, 7, brightness=0.2, auto_write=False,pixel_order = ORDER)
 
