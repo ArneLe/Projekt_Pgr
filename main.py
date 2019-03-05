@@ -22,7 +22,7 @@ def main():
 
     if platform == "linux" or platform == "linux2":
 
-        LED_Test.LEDTest(1)
+        LED_Test.LEDTest(1, pixels)
 
     column = [0 for x in range(width)]          #erstellen vom Array
     for x in range(width):
@@ -43,7 +43,7 @@ def main():
     #Anzeigen auf Knopfdruck
 
     if platform == "linux" or platform == "linux2":
-        hardware.LEDAnzeigen(column, width, height)
+        hardware.LEDAnzeigen(column, width, height, pixels)
 
     elif platform == "win32":
 
