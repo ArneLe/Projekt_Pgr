@@ -33,7 +33,7 @@ def main():
     # wenn der Knopf dann Bild Umwandeln und speichern
     column = muster1.saw(width ,height, column)
     # wenn Muster dann Muster speichern
-    # gespeichert wir in der column[x], x ist die breite. Für jede x ist ein Array, dieses ist höhe*3 groß sodas 0,1,2 Grün Rot Blau werte für ersten pixel sind. 3,4,5 für den nächsten usw.
+    # gespeichert wir in der column[x], x ist die breite. Für jede x ist ein Array, dieses ist hoehe*3 groß sodas 0,1,2 Grün Rot Blau werte für ersten pixel sind. 3,4,5 für den naechsten usw.
 
 
 
