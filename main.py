@@ -5,6 +5,7 @@ from sys import platform  # um zu checken ob auf Windows oder aufm Raspi, aufm r
 import time
 import hardware
 import muster1
+import muster2
 if platform == "linux" or platform == "linux2":
     import board
     import neopixel
@@ -32,7 +33,10 @@ def main():
 
 
     # wenn der Knopf dann Bild Umwandeln und speichern
-    column = muster1.saw(width, height, column)
+
+    #column = muster1.saw(width, height, column)
+    column = muster2.karo(width, height, column)
+
     # wenn Muster dann Muster speichern
 
 
