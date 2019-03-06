@@ -13,10 +13,10 @@ else:
     import windows
 
 width = 100
-height = 36
+height = 34
 
 if platform == "linux" or platform == "linux2":
-    pixels = neopixel.NeoPixel(board.D18, 7, brightness=0.2, auto_write=False,pixel_order = neopixel.GRB)
+    pixels = neopixel.NeoPixel(board.D18, 34, brightness=0.2, auto_write=False,pixel_order = neopixel.GRB)
 
 
 def main():
@@ -32,7 +32,7 @@ def main():
 
 
     # wenn der Knopf dann Bild Umwandeln und speichern
-    column = muster1.saw(width ,height, column)
+    column = muster1.saw(width, height, column)
     # wenn Muster dann Muster speichern
 
 
