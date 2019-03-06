@@ -17,5 +17,6 @@ def LEDTest(anzahl, pixels):
         pixels.fill((0, 0, 255))   #Blau
         pixels.show()
         time.sleep(1)
+        n = n + 1
 
 
