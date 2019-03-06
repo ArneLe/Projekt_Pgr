@@ -4,12 +4,13 @@
 from sys import platform  # um zu checken ob auf Windows oder aufm Raspi, aufm raspi wird die LED`S ausgegeben aufm Windoof ein Fenster.
 import time
 import hardware
-import windows
 import muster1
 if platform == "linux" or platform == "linux2":
     import board
     import neopixel
     import LED_Test
+else:
+    import windows
 
 width = 100
 height = 36
