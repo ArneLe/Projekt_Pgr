@@ -1,7 +1,7 @@
-#main wir vom raspi gestartet wenn eingetragen in ect. Von hier aus kann/wird alles ausgeführt
+# main wir vom raspi gestartet wenn eingetragen in ect. Von hier aus kann/wird alles ausgeführt
 
 
-from sys import platform                #um zu checken ob auf Windows oder aufm Raspi, aufm raspi wird die LED`S ausgegeben aufm Windoof ein Fenster.
+from sys import platform  # um zu checken ob auf Windows oder aufm Raspi, aufm raspi wird die LED`S ausgegeben aufm Windoof ein Fenster.
 import time
 import hardware
 import windows
@@ -30,10 +30,10 @@ def main():
 
 
 
-    #wenn der Knopf dann Bild Umwandeln und speichern
+    # wenn der Knopf dann Bild Umwandeln und speichern
     column = muster1.saw(width ,height, column)
-    #wenn Muster dann Muster speichern
-    #gespeichert wir in der column[x], x ist die breite. Für jede x ist ein Array, dieses ist höhe*3 groß sodas 0,1,2 Grün Rot Blau werte für ersten pixel sind. 3,4,5 für den nächsten usw.
+    # wenn Muster dann Muster speichern
+    # gespeichert wir in der column[x], x ist die breite. Für jede x ist ein Array, dieses ist höhe*3 groß sodas 0,1,2 Grün Rot Blau werte für ersten pixel sind. 3,4,5 für den nächsten usw.
 
 
 
