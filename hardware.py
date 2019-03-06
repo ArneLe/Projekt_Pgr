@@ -1,4 +1,4 @@
-zeitderPause = 0.3
+zeitderPause = 0.1
 
 import time
 
