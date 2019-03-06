@@ -6,7 +6,10 @@ def LEDTest(anzahl, pixels):
 
     while n < anzahl:
 
-        pixels.fill((255, 0, 0))   #Gruen
+        pixels.fill((255, 0, 0))
+        pixels[4] = (255, 0, 70)
+        pixels[6] = (255, 0,  70)
+        pixels[18] = (255, 0,  150)   #Gruen
         pixels.show()
         time.sleep(1)
 
