@@ -1,4 +1,4 @@
-zeitderPause = 0.5
+zeitderPause = 0.05
 
 import time
 
@@ -10,6 +10,6 @@ def LEDAnzeigen(column, width, height,pixels):
             y3 = y * 3
             pixels[y] = (column[x][y3], column[x][y3 + 1], column[x][y3 + 2])
             #pixels[x] = (255, 0, y + 70)
-            pixels.show()
 
+        pixels.show()
         time.sleep(zeitderPause)
