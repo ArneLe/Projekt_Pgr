@@ -1,4 +1,4 @@
-# main wir vom raspi gestartet wenn eingetragen in ect. Von hier aus kann/wird alles ausgeführt
+# main wir vom raspi gestartet wenn eingetragen in ect. Von hier aus kann/wird alles ausgefuehrt
 
 
 from sys import platform  # um zu checken ob auf Windows oder aufm Raspi, aufm raspi wird die LED`S ausgegeben aufm Windoof ein Fenster.
