@@ -5,7 +5,14 @@ if sys.version_info[0] == 2:
     from Tkinter import *
 else:
     from tkinter import *
-from TkinterDnD2 import *
+
+try:
+    from TkinterDnD2 import *
+    DnD = True
+except ImportError:
+    DnD = False
+
+
 
 from PIL import Image, ImageDraw, ImageFont, ImageTk
 import numpy as np          #abkürzung
@@ -127,7 +134,10 @@ def fileoeffnen(event):
     return c
     print(root.filename)
 
-root = TkinterDnD.Tk()
+if DnD == True:
+    root = TkinterDnD.Tk()
+else:
+    root = 0
 
 topframe=Frame(root)
 topframe.pack(fill="both", expand=True)
@@ -348,19 +358,20 @@ label_p4.grid(row=6,column=4)
 label_Bild = Label(bildframe, text="Bild",font=("Calibri 15 bold"),bg="snow")
 label_Bild.grid(column=1, row=1)
 
+if DnD == True:
 #Drag and Drop für Bildfunktion
-label_dragndrop=Label(bildframe, text="Drag'n Drop",bg="snow")
-label_dragndrop.grid(row=2, column=2)
+    label_dragndrop=Label(bildframe, text="Drag'n Drop",bg="snow")
+    label_dragndrop.grid(row=2, column=2)
 
-entry_sv = StringVar()      
-entry_sv.set('Drop Here...')
-entry = Entry(bildframe, textvar=entry_sv, width=80)
-entry.grid(row=3, column=2, padx=10, pady=10)
-entry.drop_target_register(DND_FILES)
-entry.dnd_bind('<<Drop>>', drop)
-button_Los1=Button(bildframe, text= "Bild generieren",width=18)
-button_Los1.bind("<Button-1>",Bild1)
-button_Los1.grid(row=3, column=3)
+    entry_sv = StringVar()
+    entry_sv.set('Drop Here...')
+    entry = Entry(bildframe, textvar=entry_sv, width=80)
+    entry.grid(row=3, column=2, padx=10, pady=10)
+    entry.drop_target_register(DND_FILES)
+    entry.dnd_bind('<<Drop>>', drop)
+    button_Los1=Button(bildframe, text= "Bild generieren",width=18)
+    button_Los1.bind("<Button-1>",Bild1)
+    button_Los1.grid(row=3, column=3)
 
 # Auswählen einer Datei für Bildfunkton ohne Drag and Drop
 label_datei= Label(bildframe, text="Datei auswählen",bg="snow")
@@ -375,6 +386,6 @@ button_Los2.grid(row=5, column=3)
 
 
 
-
-root.mainloop
+# was das ?
+#root.mainloop
 
