@@ -22,8 +22,8 @@ if platform == "linux" or platform == "linux2":
     import board
     import neopixel
     import LED_Test
-else:
-    import windows
+#else:
+    #import windows
 
 if platform == "linux" or platform == "linux2":
     pixels = neopixel.NeoPixel(board.D18, 34, brightness=0.2, auto_write=False, pixel_order=neopixel.GRB)
@@ -170,7 +170,7 @@ def fileoeffnen(event):
     root.filename = filedialog.askopenfilename(initialdir="/", title="selectfile",
                                                filetypes=(("jpeg files"), ("all files", "*.*")))
     label_ausgewaehlteDatei = Label(bildframe, text=root.filename)
-    label_ausgewaehlteDatei.grid(row=5, column=0)
+    label_ausgewaehlteDatei.grid(row=5, column=2)
     global c
     c = str(root.filename)
 
