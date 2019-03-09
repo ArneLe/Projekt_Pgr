@@ -11,8 +11,7 @@ from PIL import Image, ImageDraw, ImageFont
 import numpy as np  # abkürzung
 import matplotlib.pyplot as plt
 
-from sys import \
-    platform  # um zu checken ob auf Windows oder aufm Raspi, aufm raspi wird die LED`S ausgegeben aufm Windoof ein Fenster.
+from sys import platform  # um zu checken ob auf Windows oder aufm Raspi, aufm raspi wird die LED`S ausgegeben aufm Windoof ein Fenster.
 import time
 import hardware
 import muster1
@@ -35,7 +34,8 @@ height = 34
 
 def los(event):
     print('c', column)
-    hardware.LEDAnzeigen(column, width, height, pixels)
+    zeitzwSpalten =
+    hardware.LEDAnzeigen(column, width, height, pixels, zeitzwSpalten)
 
 
 def drop(event):

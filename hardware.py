@@ -4,7 +4,7 @@ import time
 
 
 
-def LEDAnzeigen(column, width, height,pixels):
+def LEDAnzeigen(column, width, height,pixels,zeitderPause):
     for x in range(width):
         for y in range(height):                                                         #height ist fest und gegeben durch die leds
             y3 = y * 3
