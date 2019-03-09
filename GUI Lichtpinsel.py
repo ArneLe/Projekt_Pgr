@@ -137,7 +137,7 @@ def fileoeffnen(event):
 if DnD == True:
     root = TkinterDnD.Tk()
 else:
-    root = 0
+    root = Tk()
 
 topframe=Frame(root)
 topframe.pack(fill="both", expand=True)
