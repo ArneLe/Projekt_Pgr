@@ -203,34 +203,6 @@ def Muster(event):
     elif (var5.get() == 1):  # REGENBOGEN
         print("Muster 5")
 
-
-
-
-
-
-
-def Bild1(event):
-
-    print('Bild')
-    a = str(tki.entry.get())
-    i = Image.open(a[1:-1]).convert('RGB')  # Drag and Drop element
-
-    # i = Image.open(c[:]).convert('RGB') #Hier muss der Dateipfad des Bildes angegeben werden oder via Drag and Drop
-    iar = np.asarray(i)  # Image Array
-    print(iar)  # gibt das Array aus
-
-    # plt.imshow(iar)
-    # plt.show()
-
-    # Bild wird neu skaliert
-    newWidth = float(i.size[0]) / float(i.size[1]) * LED_COUNT
-    columni = i.resize((int(newWidth), LED_COUNT))
-    column = np.asarray(i)
-    print('2:', column)  # zur Überprüfung
-    plt.imshow(column)
-    plt.show()
-
-
 def Bild2(event):
     print('Bild')
     # a=str(entry.get())
