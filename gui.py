@@ -73,8 +73,8 @@ def Text(event):
         tki.messagebox.showinfo(message='Bitte geben sie einen Text ein', title='Achtung')
     else:
         b = e1.get()
-        img = Image.new('RGBA', (14 * len(b), 36),
-                        color='black')  # (mode, Größe, Farbe(geht auch mit RGB Werten) Hier müsste man dann die Anzahl der LEDs wählen???
+        img = Image.new('RGBA', (14 * len(b), height),
+                        color='black')
 
         if platform == "linux" or platform == "linux2":
             #fnt = ImageFont.truetype('/media/A020-3868/calibri.ttf', 25)  # Schriftart wählen, Dateipfad angeben
@@ -370,19 +370,22 @@ Label_Farbe.grid(row=4, column=2)
 # Regler zum Einstellen der Farbe des TExtes
 Label_R = tki.Label(textframe, text='R', bg="snow", width=6)
 Label_R.grid(row=5, column=1)
-Scale_TextfarbeR = tki.Scale(textframe, from_=0, to=255, orient=tki.HORIZONTAL, command=ShowColour, length=500)
+Scale_TextfarbeR = tki.Scale(textframe, from_=0, to=255, orient=tki.HORIZONTAL, command=ShowColour, length=500)#
+Scale_TextfarbeR.set(255)
 Scale_TextfarbeR.grid(row=5, column=2)
 entry_R = tki.Entry(textframe, width=6)
 entry_R.grid(row=5, column=3)
 Label_G = tki.Label(textframe, text='G', bg="snow")
 Label_G.grid(row=6, column=1)
 Scale_TextfarbeG = tki.Scale(textframe, from_=0, to=255, orient=tki.HORIZONTAL, command=ShowColour, length=500)
+Scale_TextfarbeG.set(255)
 Scale_TextfarbeG.grid(row=6, column=2)
 entry_G = tki.Entry(textframe, width=6)
 entry_G.grid(row=6, column=3)
 Label_B = tki.Label(textframe, text='B', bg="snow")
 Label_B.grid(row=7, column=1)
 Scale_TextfarbeB = tki.Scale(textframe, from_=0, to=255, orient=tki.HORIZONTAL, command=ShowColour, length=500)
+Scale_TextfarbeB.set(255)
 Scale_TextfarbeB.grid(row=7, column=2)
 entry_B = tki.Entry(textframe, width=6)
 entry_B.grid(row=7, column=3)
