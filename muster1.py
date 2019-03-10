@@ -1,29 +1,30 @@
 
-def saw(width, height, column):
+def saw(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b):
     h = 0
     for x in range(width):
         for y in range(height):
             y3 = y * 3
 
-            if h < height:
+            if h < y:
                 if y == x:
-                    column[x][y3] = 155
-                    column[x][y3 + 1] = 100
-                    column[x][y3 + 2] = 100
+                    column[x][y3] = f1g
+                    column[x][y3 + 1] = f1r
+                    column[x][y3 + 2] = f1b
                 else:
-                    column[x][y3] = x
-                    column[x][y3 + 1] = y
-                    column[x][y3 + 2] = 11#
+                    column[x][y3] = f2g
+                    column[x][y3 + 1] = f2b
+                    column[x][y3 + 2] = f2r
                 h = h + 1
-            if h >= height:
+            if h >= y:
                 if x-h == y:
-                    column[x][y3] = 155
-                    column[x][y3 + 1] = 100
-                    column[x][y3 + 2] = 100
+                    column[x][y3] = f1g
+                    column[x][y3 + 1] = f1r
+                    column[x][y3 + 2] = f1b
                 else:
-                    column[x][y3] = x
-                    column[x][y3 + 1] = y
-                    column[x][y3 + 2] = 11
+                    column[x][y3] = f2g
+                    column[x][y3 + 1] = f2r
+                    column[x][y3 + 2] = f2b
+                h = h - 1
 
 
 

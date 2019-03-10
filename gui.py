@@ -192,15 +192,15 @@ def Muster(event):
         column = muster1.waagerecht(width, height, column, a, b, c, d, e, f)
         print("Muster 1")
     elif (var2.get() == 1):  # senkrecht
-
+        column = muster1.senkrecht(width, height, column, a, b, c, d, e, f)
         print("Muster 2")
     elif (var3.get() == 1):  # schräge
-        column = muster1.saw(width, height, column)
+        column = muster1.saw(width, height, column, a, b, c, d, e, f)
         print("Muster 3")
     elif (var4.get() == 1):  # kleines Karo
         column = muster1.karo(width, height, column, a, b, c, d, e, f) #rgb werte der beiden Farben
         print("Muster 4")
-    elif (var5.get() == 1):  # großes Karo
+    elif (var5.get() == 1):  # REGENBOGEN
         print("Muster 5")
 
 
