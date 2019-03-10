@@ -14,8 +14,8 @@ def saw(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b, f):
                     column[x][y3 + 2] = clamp(f1b + (f*int((farbe[2]))))
                 else:
                     column[x][y3] = clamp(f2g + (f*int((farbe[0]))))
-                    column[x][y3 + 1] = clamp(f2b + (f*int((farbe[2]))))
-                    column[x][y3 + 2] = clamp(f2r + (f*int((farbe[1]))))
+                    column[x][y3 + 1] = clamp(f2r + (f*int((farbe[1]))))
+                    column[x][y3 + 2] = clamp(f2b + (f*int((farbe[2]))))
 
             elif x >= height and h%2 == 1:
                 if height - y == x-h*height:
