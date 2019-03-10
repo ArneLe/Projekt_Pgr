@@ -195,16 +195,16 @@ def Muster(event):
     if (m != 1):
         tki.messagebox.showinfo(message='Bitte nur ein Muster auswählen', title='Achtung')
     elif (var1.get() == 1):  # waagerecht
-        column = muster1.waagerecht(width, height, column, a, b, c, d, e, f)
+        column = muster1.waagerecht(int(entry_pixel.get()), height, column, a, b, c, d, e, f)
         print("Muster 1")
     elif (var2.get() == 1):  # senkrecht
-        column = muster1.senkrecht(width, height, column, a, b, c, d, e, f)
+        column = muster1.senkrecht(int(entry_pixel.get()), height, column, a, b, c, d, e, f)
         print("Muster 2")
     elif (var3.get() == 1):  # schräge
-        column = muster1.saw(width, height, column, a, b, c, d, e, f)
+        column = muster1.saw(int(entry_pixel.get()), height, column, a, b, c, d, e, f)
         print("Muster 3")
     elif (var4.get() == 1):  # kleines Karo
-        column = muster1.karo(width, height, column, a, b, c, d, e, f) #rgb werte der beiden Farben
+        column = muster1.karo(int(entry_pixel.get()), height, column, a, b, c, d, e, f) #rgb werte der beiden Farben
         print("Muster 4")
     elif (var5.get() == 1):  # REGENBOGEN
         print("Muster 5")
@@ -444,6 +444,12 @@ chb5 = tki.Checkbutton(musterframe, text="Regenbogen", variable=var5).grid(row=3
 
 var6 = tki.IntVar()
 chb6 = tki.Checkbutton(musterframe, text="Farbverlauf", variable=var6).grid(row=5, column=2)
+
+label_pixel=tki.Label(musterframe, text="Breite in Pixeln")
+label_pixel.grid(row=4, column=3)
+entry_pixel = tki.Entry(musterframe)
+entry_pixel.grid(row=5, column=3)
+entry_pixel.insert(0, 100)
 
 # Platzhalter
 label_p2 = tki.Label(bildframe, width=9, bg="snow")
