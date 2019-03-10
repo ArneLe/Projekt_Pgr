@@ -420,14 +420,14 @@ button_Muster.grid(row=7, column=3)
 
 # Drop Down Menues
 Farbe1_Muster1 = tki.StringVar(root)
-Farbe1_Muster1.set("Farbe 1")  # default value
+Farbe1_Muster1.set("rot")  # default value
 Dropdown_Farbe1_Muster1 = tki.OptionMenu(musterframe, Farbe1_Muster1, "rot", "pink", "weiß", "grün", "hellblau", "schwarz",
                                      "dunkelblau", "gelb", "orange")
 Dropdown_Farbe1_Muster1.config(width=8)  # legt die breite fest, damit diese nicht mit der Länge des Wortes variiert
 Dropdown_Farbe1_Muster1.grid(row=4, column=1)
 
 Farbe2_Muster1 = tki.StringVar(root)
-Farbe2_Muster1.set("Farbe 2")  # default value
+Farbe2_Muster1.set("weiß")  # default value
 Dropdown_Farbe2_Muster1 = tki.OptionMenu(musterframe, Farbe2_Muster1, "rot", "pink", "weiß", "grün", "hellblau", "schwarz",
                                      "dunkelblau", "gelb", "orange")
 Dropdown_Farbe2_Muster1.config(width=8)  # legt die breite fest, damit diese nicht mit der Länge des Wortes variiert
