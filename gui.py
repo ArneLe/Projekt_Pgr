@@ -7,7 +7,7 @@ from sys import platform  # um zu checken ob auf Windows oder aufm Raspi, aufm r
 import time
 import hardware
 import muster1
-import muster2
+
 
 if platform == "linux" or platform == "linux2":
     import board
@@ -26,14 +26,14 @@ height = 34
 
 
 def ArrayErstellen():
+    global column
     column = [0 for x in range(width)]  # erstellen vom Array
     for x in range(width):
         column[x] = bytearray(height * 3 + 1)
-    return column
 
+ArrayErstellen()
 
 def los(event):
-    column = spalte
     print('c', column)
     zeitzwspalten = int(entry_time.get()) / width
 
@@ -104,12 +104,11 @@ def Text(event):
 
 def Muster(event):
 
-    global spalte
+    global column
 
     print('Muster')
     m = var1.get() + int(var2.get()) + int(var3.get()) + int(var4.get()) + int(var5.get())
     print(m)
-    column = ArrayErstellen()
 
     if (m != 1):
         tki.messagebox.showinfo(message='Bitte nur ein Muster auswählen', title='Achtung')
@@ -123,12 +122,10 @@ def Muster(event):
         column = muster1.saw(width, height, column)
         print("Muster 3")
     elif (var4.get() == 1):  # kleines Karo
-        column = muster2.karo(width, height, column)
+        column = muster1.karo(width, height, column, x, x, x, x, x, x) #rgb werte der beiden Farben
         print("Muster 4")
     elif (var5.get() == 1):  # großes Karo
         print("Muster 5")
-
-    spalte = column
 
 
 
