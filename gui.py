@@ -14,8 +14,7 @@ if platform == "linux" or platform == "linux2":
     import board
     import neopixel
     import LED_Test
-#else:
-    #import windows
+
 
 if platform == "linux" or platform == "linux2":
     pixels = neopixel.NeoPixel(board.D18, 34, brightness=0.2, auto_write=False, pixel_order=neopixel.GRB)
@@ -90,8 +89,7 @@ def Text(event):
             int(entry_R.get()), int(entry_G.get()), int(entry_B.get()), 255))  # Position, Text, Schriftart, Farbe
             img.save('images/text.png')
 
-        # plt.imshow(img)       Warum auch immer es nicht funktioniert, wenn sie im Text sind
-        # plt.show()
+
         ti = Image.open('images/text.png').convert('RGB')  # textImage
 
         coulumnbild = np.asarray(ti)
@@ -220,15 +218,11 @@ def Muster(event):
 
 def Bild2(event):
     print('Bild')
-    # a=str(entry.get())
-    # i = Image.open(a[1:-1]).convert('RGB')  # Drag and Drop element
 
     i = Image.open(c[:]).convert('RGB')  # Hier muss der Dateipfad des Bildes angegeben werden oder via Drag and Drop
     iar = np.asarray(i)  # Image Array
     print(iar)  # gibt das Array aus
 
-    # plt.imshow(iar)
-    # plt.show()
 
     # Bild wird neu skaliert
     newWidth = float(i.size[0]) / float(i.size[1]) * LED_COUNT
@@ -303,7 +297,7 @@ textframe.pack(fill="both", expand=True)
 
 textframe.configure(background='snow')
 
-# textframe.grid_columnconfigure(0,weight=1)
+
 textframe.grid_columnconfigure(1, weight=1)
 textframe.grid_columnconfigure(2, weight=1)
 textframe.grid_columnconfigure(3, weight=1)
@@ -311,7 +305,6 @@ textframe.grid_columnconfigure(3, weight=1)
 musterframe = tki.Frame(root)
 musterframe.pack(fill="both", expand=True)
 musterframe.configure(background="white smoke")
-# musterframe.grid_columnconfigure(0, weight=1)
 musterframe.grid_columnconfigure(1, weight=1)
 musterframe.grid_columnconfigure(2, weight=1)
 musterframe.grid_columnconfigure(3, weight=1)
@@ -321,7 +314,6 @@ musterframe.grid_columnconfigure(5, weight=1)
 bildframe = tki.Frame(root)
 bildframe.pack(fill="both", expand=True)
 bildframe.configure(background="snow")
-# bildframe.grid_columnconfigure(0, weight=1)
 bildframe.grid_columnconfigure(1, weight=1)
 bildframe.grid_columnconfigure(2, weight=1)
 bildframe.grid_columnconfigure(3, weight=1)
@@ -389,14 +381,7 @@ Scale_TextfarbeB.grid(row=7, column=2)
 entry_B = tki.Entry(textframe, width=6)
 entry_B.grid(row=7, column=3)
 
-# image_colour = Image.new('RGB',(14, 14), color = (Scale_TextfarbeR.get(),Scale_TextfarbeG.get(),Scale_TextfarbeB.get()))
-# image_colour.save('images/textcolour.png')
-# load = Image.open('images/textcolour.png')
-# render=Imagetki.PhotoImage(load)
-# image_textcolour = tki.Label(textframe, image=render)
-# image_textcolour.image = render
-# image_textcolour.grid(row=7, column=1)
-# image1= PhotoImage(file='images/Jill.JPG')
+
 
 # label zur Farbvorschau
 label_farbvorschau = tki.Label(textframe, background='black', width=5, height=2, pady=2)
@@ -405,8 +390,7 @@ label_farbvorschau.grid(row=8, column=2)
 button_RGB = tki.Button(textframe, text='Eingabe')
 button_RGB.bind("<Button-1>", ShowColour)
 button_RGB.grid(row=8, column=3)
-# separator = Frame(height=2, bd=1, relief=SUNKEN)
-# separator.pack(fill=X, padx=5, pady=5)
+
 
 # Muster
 label_p5 = tki.Label(musterframe, width=9, bg="white smoke")  # platzhalter
