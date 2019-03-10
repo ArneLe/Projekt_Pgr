@@ -79,11 +79,10 @@ def Text(event):    #erstellen des Textes
             fnt = ImageFont.truetype('C:\Windows\Fonts\Calibri.ttf', 25)  # Schriftart wählen, Dateipfad angeben
         d = ImageDraw.Draw(img)
 
-        if (entry_R.get() == "" or entry_G.get() == "" or entry_B.get() == ""):
-            d.text((5, 5), b, font=fnt, fill=(Scale_TextfarbeR.get(), Scale_TextfarbeG.get(), Scale_TextfarbeB.get(),
-                                              255))  # Position, Text, Schriftart, Farbe
+        if (entry_R.get() == "" or entry_G.get() == "" or entry_B.get() == ""): # wenn keine Werte eingegeben sind, dann nehme die Ferte von den Schiebebalken
+            d.text((5, 5), b, font=fnt, fill=(Scale_TextfarbeR.get(), Scale_TextfarbeG.get(), Scale_TextfarbeB.get(),255))  # Position, Text, Schriftart, Farbe
             img.save('images/text.png')
-        else:
+        else: # sonst nehme die eingegebenen Werte
             d.text((5, 5), b, font=fnt, fill=(
             int(entry_R.get()), int(entry_G.get()), int(entry_B.get()), 255))  # Position, Text, Schriftart, Farbe
             img.save('images/text.png')
@@ -114,6 +113,7 @@ def Text(event):    #erstellen des Textes
 def Muster(event):
 
     global column
+    #Welche Farbe wurde ausgewählt? Setze RGB-Werte
     if (Farbe1_Muster1.get()=="rot"):
         print('Farbe rot')
         a=0
@@ -198,7 +198,7 @@ def Muster(event):
     width = int(entry_pixel.get())+1
     ArrayErstellen()
     if (m != 1):
-        tki.messagebox.showinfo(message='Bitte nur ein Muster auswählen', title='Achtung')
+        tki.messagebox.showinfo(message='Bitte nur ein Muster auswählen', title='Achtung')  #Warnung, wenn zu viele oder kein Muster ausgewählt wurde
     elif (var1.get() == 1):  # waagerecht
         column = muster1.waagerecht(int(entry_pixel.get()), height, column, a, b, c, d, e, f)
         print("Muster 1")
@@ -247,21 +247,19 @@ def Bild2(event):
     plt.show()
 
 
-def ShowColour(event):
+def ShowColour(event):      #Farbvorschau
     if (entry_R.get() == "" or entry_G.get() == "" or entry_B.get() == ""):
         label_farbvorschau.config(
-            background=_from_rgb((Scale_TextfarbeR.get(), Scale_TextfarbeG.get(), Scale_TextfarbeB.get())))
+            background=_from_rgb((Scale_TextfarbeR.get(), Scale_TextfarbeG.get(), Scale_TextfarbeB.get()))) #Farbe von Schiebebalken
     else:
-        label_farbvorschau.config(background=_from_rgb((int(entry_R.get()), int(entry_G.get()), int(entry_B.get()))))
+        label_farbvorschau.config(background=_from_rgb((int(entry_R.get()), int(entry_G.get()), int(entry_B.get())))) #eingegebene Werte
 
 
-def _from_rgb(rgb):
-    """translates an rgb tuple of int to a tkinter friendly color code
-    """
+def _from_rgb(rgb): #rgb in Hexa
     return "#%02x%02x%02x" % rgb
 
 
-def fileoeffnen(event):
+def fileoeffnen(event):     #öffnen von Dateien
     if platform == "linux" or platform == "linux2":
         root.filename = tki.filedialog.askopenfilename(initialdir="/media/pi", title="selectfile",filetypes=(("jpeg files", "*.jpg;*.jpeg;*.png"), ("all files", "*.*")))
     else:
@@ -269,7 +267,7 @@ def fileoeffnen(event):
 
     label_ausgewaehlteDatei = tki.Label(bildframe, text=root.filename)
     label_ausgewaehlteDatei.grid(row=5, column=0)
-    global c
+    global c    #c wird in der Bild-Funktion benötigt
     c = str(root.filename)
 
     return c
@@ -284,19 +282,16 @@ if platform == "linux" or platform == "linux2":
 
 root = tki.Tk()
 
+
 topframe = tki.Frame(root)
 topframe.pack(fill="both", expand=True)
-# topframe.grid_columnconfigure(1, weight=1)
-# topframe.grid_columnconfigure(2, weight=1)
-# topframe.grid_columnconfigure(3, weight=1)
 topframe.configure(bg="white smoke")
 
 textframe = tki.Frame(root)
 textframe.pack(fill="both", expand=True)
-
 textframe.configure(background='snow')
 
-
+#Gewichtung der Spalten festlegen
 textframe.grid_columnconfigure(1, weight=1)
 textframe.grid_columnconfigure(2, weight=1)
 textframe.grid_columnconfigure(3, weight=1)
@@ -335,6 +330,7 @@ button_los.bind("<Button-1>", los)
 button_los.grid(row=3, column=4)
 
 # Textframe
+#Platzhalter
 label_p = tki.Label(textframe, width=9, bg="snow")
 label_p.grid()
 label_p4 = tki.Label(textframe, width=9, bg="snow")
@@ -386,12 +382,14 @@ entry_B.grid(row=7, column=3)
 label_farbvorschau = tki.Label(textframe, background='black', width=5, height=2, pady=2)
 label_farbvorschau.grid(row=8, column=2)
 
+#Button zur Vorschau der eingegebenen RGB Werte
 button_RGB = tki.Button(textframe, text='Eingabe')
 button_RGB.bind("<Button-1>", ShowColour)
 button_RGB.grid(row=8, column=3)
 
 
 # Muster
+#Platzhalter
 label_p5 = tki.Label(musterframe, width=9, bg="white smoke")  # platzhalter
 label_p5.grid(column=7)
 label_p7 = tki.Label(musterframe, width=9, bg="white smoke")  # platzhalter
@@ -437,9 +435,11 @@ chb4 = tki.Checkbutton(musterframe, text="kleines Karo", variable=var4).grid(row
 var5 = tki.IntVar()
 chb5 = tki.Checkbutton(musterframe, text="Regenbogen", variable=var5).grid(row=3, column=5)
 
+#Checkbox Farbverlauf
 var6 = tki.IntVar()
 chb6 = tki.Checkbutton(musterframe, text="Farbverlauf", variable=var6).grid(row=5, column=2)
 
+#Auswahl der Größe
 label_pixel=tki.Label(musterframe, text="Breite in Pixeln")
 label_pixel.grid(row=4, column=3)
 entry_pixel = tki.Entry(musterframe)
