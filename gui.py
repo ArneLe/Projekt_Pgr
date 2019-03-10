@@ -113,7 +113,7 @@ def Muster(event):
     if (m != 1):
         tki.messagebox.showinfo(message='Bitte nur ein Muster auswählen', title='Achtung')
     elif (var1.get() == 1):  # waagerecht
-
+        column = muster1.waagerecht(width, height, column, 233, 1, 33, 66, 231, 0)
         print("Muster 1")
     elif (var2.get() == 1):  # senkrecht
 
@@ -122,7 +122,7 @@ def Muster(event):
         column = muster1.saw(width, height, column)
         print("Muster 3")
     elif (var4.get() == 1):  # kleines Karo
-        column = muster1.karo(width, height, column, x, x, x, x, x, x) #rgb werte der beiden Farben
+        column = muster1.karo(width, height, column, 255, 255, 0, 145, 122, 255) #rgb werte der beiden Farben
         print("Muster 4")
     elif (var5.get() == 1):  # großes Karo
         print("Muster 5")
