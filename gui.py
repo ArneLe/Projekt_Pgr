@@ -67,6 +67,7 @@ def drop(event):
 
 
 def Text(event):
+    global column
     print("Texteingabe")
     if (e1.get() == ""):
         tki.messagebox.showinfo(message='Bitte geben sie einen Text ein', title='Achtung')
@@ -89,15 +90,19 @@ def Text(event):
         # plt.imshow(img)       Warum auch immer es nicht funktioniert, wenn sie im Text sind
         # plt.show()
         ti = Image.open('images/text.png').convert('RGB')  # textImage
-        column = np.asarray(ti)  # textimage Array
-        print(column)  # ausgabe array Bildtext
-        print(column.shape)  # gibt die höhe und breite des Arrays aus
 
-        # Bild wird neu skaliert, eigentlich nicht notwendig, nur eine Vorsichtsmaßnahme
-        newWidth = float(ti.size[0]) / float(ti.size[1]) * LED_COUNT
-        ti = ti.resize((int(newWidth), LED_COUNT))
-        column = np.asarray(ti)
-        print(column)  # zur Überprüfung
+        coulumnbild = np.asarray(ti)
+
+        print(coulumnbild)
+        width = int(14 * len(b))
+
+        for x in range(0, width, +1):
+            for y in range(0, height, +1):
+                y3 = y * 3
+                column[x][y3] = coulumnbild[y][x][0]
+                column[x][y3 + 1] = coulumnbild[y][x][1]
+                column[x][y3 + 2] = coulumnbild[y][x][2]
+
         plt.imshow(column)
         plt.show()
 
