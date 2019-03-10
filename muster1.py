@@ -1,4 +1,4 @@
-
+#Schräge
 def saw(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b):
     h = 0
     w = 0
@@ -44,6 +44,7 @@ def saw(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b):
     return column
 
 
+#Karomuster
 def karo(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b):
 
 
@@ -68,8 +69,8 @@ def karo(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b):
 
 
 
+#waagerechte Streifen
 def waagerecht(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b,f):
-
 
     for x in range(0, width, +1):
         for y in range(0, height, +2):
@@ -85,6 +86,8 @@ def waagerecht(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b,f):
 
     return column
 
+
+#senkrechte Streifen
 def senkrecht(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b):
 
     for x in range(0, width, +2):
@@ -108,6 +111,7 @@ def senkrecht(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b):
     return column
 
 
+#Regenbogen Muster
 def regenbogen(width, height, column):
 
     for x in range(0, width, +1):
