@@ -36,6 +36,7 @@ ArrayErstellen()
 def los(event):
     print('c', column)
     zeitzwspalten = int(entry_time.get()) / width
+    print(zeitzwspalten)
 
     if platform == "linux" or platform == "linux2":
         hardware.LEDAnzeigen(column, width, height, pixels, int(zeitzwspalten))

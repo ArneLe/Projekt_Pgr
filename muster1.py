@@ -44,9 +44,9 @@ def karo(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b):
             column[x][y3 + 4] = f2r
             column[x][y3 + 5] = f2b
 
-            column[x+1][y3] = f2b
+            column[x+1][y3] = f2g
             column[x+1][y3 + 1] = f2r
-            column[x+1][y3 + 2] = f2g
+            column[x+1][y3 + 2] = f2b
             column[x+1][y3 + 3] = f1g
             column[x+1][y3 + 4] = f1r
             column[x+1][y3 + 5] = f1b
