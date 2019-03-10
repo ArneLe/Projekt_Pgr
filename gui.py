@@ -444,7 +444,7 @@ chb3 = tki.Checkbutton(musterframe, text="Schräge", variable=var3).grid(row=3, 
 var4 = tki.IntVar()
 chb4 = tki.Checkbutton(musterframe, text="kleines Karo", variable=var4).grid(row=3, column=4)
 var5 = tki.IntVar()
-chb5 = tki.Checkbutton(musterframe, text="großes Karo", variable=var5).grid(row=3, column=5)
+chb5 = tki.Checkbutton(musterframe, text="Regenbogen", variable=var5).grid(row=3, column=5)
 
 # Platzhalter
 label_p2 = tki.Label(bildframe, width=9, bg="snow")
