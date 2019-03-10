@@ -193,14 +193,14 @@ def Muster(event):
     print('Muster')
     m = var1.get() + int(var2.get()) + int(var3.get()) + int(var4.get()) + int(var5.get())
     print(m)
-    x=int(var6.get())
+    x=int(var6.get()) # Farbverlauf Hacken
     global width
     width = int(entry_pixel.get())+1
     ArrayErstellen()
     if (m != 1):
         tki.messagebox.showinfo(message='Bitte nur ein Muster auswählen', title='Achtung')
     elif (var1.get() == 1):  # waagerecht
-        column = muster1.waagerecht(int(entry_pixel.get()), height, column, a, b, c, d, e, f)
+        column = muster1.waagerecht(int(entry_pixel.get()), height, column, a, b, c, d, e, f,x)
         print("Muster 1")
     elif (var2.get() == 1):  # senkrecht
         column = muster1.senkrecht(int(entry_pixel.get()), height, column, a, b, c, d, e, f)

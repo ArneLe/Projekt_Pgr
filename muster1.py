@@ -68,17 +68,20 @@ def karo(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b):
 
 
 
-def waagerecht(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b):
+def waagerecht(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b,f):
+
 
     for x in range(0, width, +1):
         for y in range(0, height, +2):
             y3 = y * 3
-            column[x][y3] = f1g
-            column[x][y3 + 1] = f1r
-            column[x][y3 + 2] = f1b
-            column[x][y3 + 3] = f2g
-            column[x][y3 + 4] = f2r
-            column[x][y3 + 5] = f2b
+            farbe = wheel(x+y)
+            column[x][y3] = clamp(f1g + (f*int((farbe[0]))))
+            column[x][y3 + 1] = clamp(f1r + (f*int((farbe[1]))))
+            column[x][y3 + 2] = clamp(f1b + (f*int((farbe[2]))))
+            column[x][y3 + 3] = clamp(f2g + (f*int((farbe[0]))))
+            column[x][y3 + 4] = clamp(f2r + (f*int((farbe[1]))))
+            column[x][y3 + 5] = clamp(f2b + (f*int((farbe[2]))))
+        print(farbe)
 
     return column
 
@@ -142,3 +145,5 @@ def wheel(pos):
         b = int(255 - pos*3)
     return (r, g, b)
 
+def clamp(n):
+    return max(min(255, n), 0)
