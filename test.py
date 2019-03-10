@@ -1,3 +1,0 @@
-baljsd 
-print "ldasd
-"

@@ -26,6 +26,5 @@ def karo(width, height, column):
             column[x+1][y3 + 4] = b
             column[x+1][y3 + 5] = c
 
-
-
     return column
+
