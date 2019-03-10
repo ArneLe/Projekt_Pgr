@@ -77,7 +77,8 @@ def Text(event):
                         color='black')  # (mode, Größe, Farbe(geht auch mit RGB Werten) Hier müsste man dann die Anzahl der LEDs wählen???
 
         if platform == "linux" or platform == "linux2":
-            fnt = ImageFont.truetype('\media\A020-3868\calibri.ttf', 25)  # Schriftart wählen, Dateipfad angeben
+            #fnt = ImageFont.truetype('\media\A020-3868\calibri.ttf', 25)  # Schriftart wählen, Dateipfad angeben
+            fnt = ImageFont.truetype('~/.fonts/calibri.ttf', 25)  # Schriftart wählen, Dateipfad angeben
         else:
             fnt = ImageFont.truetype('C:\Windows\Fonts\Calibri.ttf', 25)  # Schriftart wählen, Dateipfad angeben
         d = ImageDraw.Draw(img)
