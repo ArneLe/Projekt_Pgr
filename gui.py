@@ -203,13 +203,13 @@ def Muster(event):
         column = muster1.waagerecht(int(entry_pixel.get()), height, column, a, b, c, d, e, f,x)
         print("Muster 1")
     elif (var2.get() == 1):  # senkrecht
-        column = muster1.senkrecht(int(entry_pixel.get()), height, column, a, b, c, d, e, f)
+        column = muster1.senkrecht(int(entry_pixel.get()), height, column, a, b, c, d, e, f,x)
         print("Muster 2")
     elif (var3.get() == 1):  # schräge
-        column = muster1.saw(int(entry_pixel.get()), height, column, a, b, c, d, e, f)
+        column = muster1.saw(int(entry_pixel.get()), height, column, a, b, c, d, e, f,x)
         print("Muster 3")
     elif (var4.get() == 1):  # kleines Karo
-        column = muster1.karo(int(entry_pixel.get()), height, column, a, b, c, d, e, f) #rgb werte der beiden Farben
+        column = muster1.karo(int(entry_pixel.get()), height, column, a, b, c, d, e, f,x) #rgb werte der beiden Farben
         print("Muster 4")
     elif (var5.get() == 1): # REGENBOGEN
         column = muster1.regenbogen(width, height, column)

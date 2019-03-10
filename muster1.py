@@ -1,40 +1,41 @@
 #Schräge
-def saw(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b):
+def saw(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b, f):
     h = 0
     w = 0
     for x in range(width):
         for y in range(height):
             y3 = y * 3
+            farbe = wheel(x + y)
 
             if x < height:
                 if y == x:
-                    column[x][y3] = f1g
-                    column[x][y3 + 1] = f1r
-                    column[x][y3 + 2] = f1b
+                    column[x][y3] = clamp(f1g + (f*int((farbe[0]))))
+                    column[x][y3 + 1] = clamp(f1r + (f*int((farbe[1]))))
+                    column[x][y3 + 2] = clamp(f1b + (f*int((farbe[2]))))
                 else:
-                    column[x][y3] = f2g
-                    column[x][y3 + 1] = f2b
-                    column[x][y3 + 2] = f2r
+                    column[x][y3] = clamp(f2g + (f*int((farbe[0]))))
+                    column[x][y3 + 1] = clamp(f2b + (f*int((farbe[2]))))
+                    column[x][y3 + 2] = clamp(f2r + (f*int((farbe[1]))))
 
             elif x >= height and h%2 == 1:
                 if height - y == x-h*height:
-                    column[x][y3] = f1g
-                    column[x][y3 + 1] = f1r
-                    column[x][y3 + 2] = f1b
+                    column[x][y3] = clamp(f1g + (f*int((farbe[0]))))
+                    column[x][y3 + 1] = clamp(f1r + (f*int((farbe[1]))))
+                    column[x][y3 + 2] = clamp(f1b + (f*int((farbe[2]))))
                 else:
-                    column[x][y3] = f2g
-                    column[x][y3 + 1] = f2r
-                    column[x][y3 + 2] = f2b
+                    column[x][y3] = clamp(f2g + (f*int((farbe[0]))))
+                    column[x][y3 + 1] = clamp(f2r + (f*int((farbe[1]))))
+                    column[x][y3 + 2] = clamp(f2b + (f*int((farbe[2]))))
 
             elif x >= height and h % 2 == 0:
                 if y == x - h * height:
-                    column[x][y3] = f1g
-                    column[x][y3 + 1] = f1r
-                    column[x][y3 + 2] = f1b
+                    column[x][y3] = clamp(f1g + (f*int((farbe[0]))))
+                    column[x][y3 + 1] = clamp(f1r + (f*int((farbe[1]))))
+                    column[x][y3 + 2] = clamp(f1b + (f*int((farbe[2]))))
                 else:
-                    column[x][y3] = f2g
-                    column[x][y3 + 1] = f2r
-                    column[x][y3 + 2] = f2b
+                    column[x][y3] = clamp(f2g + (f*int((farbe[0]))))
+                    column[x][y3 + 1] = clamp(f2r + (f*int((farbe[1]))))
+                    column[x][y3 + 2] = clamp(f2b + (f*int((farbe[2]))))
         w = w + 1
         if w == height:
             w = 0
@@ -45,25 +46,26 @@ def saw(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b):
 
 
 #Karomuster
-def karo(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b):
+def karo(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b, f):
 
 
     for x in range(0, width, +2):
         for y in range(0, height, +2):
             y3 = y * 3
-            column[x][y3] = f1g
-            column[x][y3 + 1] = f1r
-            column[x][y3 + 2] = f1b
-            column[x][y3 + 3] = f2g
-            column[x][y3 + 4] = f2r
-            column[x][y3 + 5] = f2b
+            farbe = wheel(x + y)
+            column[x][y3] = clamp(f1g + (f*int((farbe[0]))))
+            column[x][y3 + 1] = clamp(f1r + (f*int((farbe[1]))))
+            column[x][y3 + 2] = clamp(f1b + (f*int((farbe[2]))))
+            column[x][y3 + 3] = clamp(f2g + (f*int((farbe[0]))))
+            column[x][y3 + 4] = clamp(f2r + (f*int((farbe[1]))))
+            column[x][y3 + 5] = clamp(f2b + (f*int((farbe[2]))))
 
-            column[x+1][y3] = f2g
-            column[x+1][y3 + 1] = f2r
-            column[x+1][y3 + 2] = f2b
-            column[x+1][y3 + 3] = f1g
-            column[x+1][y3 + 4] = f1r
-            column[x+1][y3 + 5] = f1b
+            column[x+1][y3] = clamp(f2g + (f*int((farbe[0]))))
+            column[x+1][y3 + 1] = clamp(f2r + (f*int((farbe[1]))))
+            column[x+1][y3 + 2] = clamp(f2b + (f*int((farbe[2]))))
+            column[x+1][y3 + 3] = clamp(f1g + (f*int((farbe[0]))))
+            column[x+1][y3 + 4] = clamp(f1r + (f*int((farbe[1]))))
+            column[x+1][y3 + 5] = clamp(f1b + (f*int((farbe[2]))))
 
     return column
 
@@ -88,24 +90,25 @@ def waagerecht(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b,f):
 
 
 #senkrechte Streifen
-def senkrecht(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b):
+def senkrecht(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b, f):
 
     for x in range(0, width, +2):
         for y in range(0, height, +2):
             y3 = y * 3
-            column[x][y3] = f1g
-            column[x][y3 + 1] = f1r
-            column[x][y3 + 2] = f1b
-            column[x][y3 + 3] = f1g
-            column[x][y3 + 4] = f1r
-            column[x][y3 + 5] = f1b
+            farbe = wheel(x + y)
+            column[x][y3] = clamp(f1g + (f*int((farbe[0]))))
+            column[x][y3 + 1] = clamp(f1r + (f*int((farbe[1]))))
+            column[x][y3 + 2] = clamp(f1b + (f*int((farbe[2]))))
+            column[x][y3 + 3] = clamp(f1g + (f*int((farbe[0]))))
+            column[x][y3 + 4] = clamp(f1r + (f*int((farbe[1]))))
+            column[x][y3 + 5] = clamp(f1b + (f*int((farbe[2]))))
 
-            column[x+1][y3] = f2g
-            column[x+1][y3 + 1] = f2r
-            column[x+1][y3 + 2] = f2b
-            column[x+1][y3 + 3] = f2g
-            column[x+1][y3 + 4] = f2r
-            column[x+1][y3 + 5] = f2b
+            column[x+1][y3] = clamp(f2g + (f*int((farbe[0]))))
+            column[x+1][y3 + 1] = clamp(f2r + (f*int((farbe[1]))))
+            column[x+1][y3 + 2] = clamp(f2b + (f*int((farbe[2]))))
+            column[x+1][y3 + 3] = clamp(f2g + (f*int((farbe[0]))))
+            column[x+1][y3 + 4] = clamp(f2r + (f*int((farbe[1]))))
+            column[x+1][y3 + 5] = clamp(f2b + (f*int((farbe[2]))))
 
 
     return column
