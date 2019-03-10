@@ -97,9 +97,11 @@ def Text(event):
         ti = Image.open('images/text.png').convert('RGB')  # textImage
 
         coulumnbild = np.asarray(ti)
+        global width
 
         print(coulumnbild)
         width = int(14 * len(b))
+        ArrayErstellen()
 
         for x in range(0, width, +1):
             for y in range(0, height, +1):
@@ -163,7 +165,7 @@ def Muster(event):
         d=0
         e=255
         f=255
-    if (Farbe1_Muster1.get()=="weiß"):
+    if (Farbe2_Muster1.get()=="weiß"):
         d=255
         e=255
         f=255
@@ -197,6 +199,9 @@ def Muster(event):
     m = var1.get() + int(var2.get()) + int(var3.get()) + int(var4.get()) + int(var5.get())
     print(m)
     x=int(var6.get())
+    global width
+    width = int(entry_pixel.get())+1
+    ArrayErstellen()
     if (m != 1):
         tki.messagebox.showinfo(message='Bitte nur ein Muster auswählen', title='Achtung')
     elif (var1.get() == 1):  # waagerecht
