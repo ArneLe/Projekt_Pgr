@@ -1,4 +1,5 @@
 import tkinter as tki
+from tkinter import filedialog
 from PIL import Image, ImageDraw, ImageFont
 import numpy as np  # abkürzung
 import matplotlib.pyplot as plt
@@ -218,7 +219,22 @@ def Bild2(event):
     # Bild wird neu skaliert
     newWidth = float(i.size[0]) / float(i.size[1]) * LED_COUNT
     i = i.resize((int(newWidth), LED_COUNT))
-    column = np.asarray(i)
+
+    # np.asarray(i) muss umgerechnet werden
+    coulumnbild = np.asarray(i)
+
+
+    print(coulumnbild)
+    width = int(newWidth)
+
+    for x in range(0, width, +1):
+        for y in range(0, height, +1):
+            y3 = y * 3
+            column[x][y3] = coulumnbild[y][x][0]
+            column[x][y3 + 1] = coulumnbild[y][x][1]
+            column[x][y3 + 2] = coulumnbild[y][x][2]
+
+
     print('2:', column)  # zur Überprüfung
     plt.imshow(column)
     plt.show()
