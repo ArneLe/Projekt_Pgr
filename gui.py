@@ -35,7 +35,7 @@ ArrayErstellen()
 
 def los(event):
     print('c', column)
-    zeitzwspalten = entry_time.get() / width
+    zeitzwspalten = int(entry_time.get()) / width
     print(zeitzwspalten)
 
     if platform == "linux" or platform == "linux2":
