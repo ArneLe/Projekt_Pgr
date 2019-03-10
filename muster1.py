@@ -1,11 +1,12 @@
 
 def saw(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b):
     h = 0
+    w = 0
     for x in range(width):
         for y in range(height):
             y3 = y * 3
 
-            if h < y:
+            if x < height:
                 if y == x:
                     column[x][y3] = f1g
                     column[x][y3 + 1] = f1r
@@ -14,9 +15,9 @@ def saw(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b):
                     column[x][y3] = f2g
                     column[x][y3 + 1] = f2b
                     column[x][y3 + 2] = f2r
-                h = h + 1
-            if h >= y:
-                if x-h == y:
+
+            elif x >= height and h%2 == 1:
+                if height - y == x-h*height:
                     column[x][y3] = f1g
                     column[x][y3 + 1] = f1r
                     column[x][y3 + 2] = f1b
@@ -24,8 +25,20 @@ def saw(width, height, column, f1r, f1g, f1b, f2r, f2g, f2b):
                     column[x][y3] = f2g
                     column[x][y3 + 1] = f2r
                     column[x][y3 + 2] = f2b
-                h = h - 1
 
+            elif x >= height and h % 2 == 0:
+                if y == x - h * height:
+                    column[x][y3] = f1g
+                    column[x][y3 + 1] = f1r
+                    column[x][y3 + 2] = f1b
+                else:
+                    column[x][y3] = f2g
+                    column[x][y3 + 1] = f2r
+                    column[x][y3 + 2] = f2b
+        w = w + 1
+        if w == height:
+            w = 0
+            h = h +1
 
 
     return column
@@ -112,7 +125,7 @@ def wheel(pos):
     # Input a value 0 to 255 to get a color value.
     # The colours are a transition r - g - b - back to r.
     if pos < 0 or pos > 255:
-        r = g = b = 0
+        r = b = g = 0
     elif pos < 85:
         r = int(pos * 3)
         g = int(255 - pos*3)
