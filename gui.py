@@ -33,7 +33,7 @@ def ArrayErstellen():
 
 ArrayErstellen()
 
-def los(event):
+def los(event): #sorgt dafür, dass die LEDs gestartet werden
     print('c', column)
     zeitzwspalten = int(entry_time.get()) / width
     print(zeitzwspalten)
@@ -47,7 +47,7 @@ def los(event):
 
 
 
-def muster_anzeigen(column, width, height):
+def muster_anzeigen(column, width, height): #Funktion zum Überprüfen der Grafiken am PC
 
     root1 = tki.Tk()
 
@@ -63,18 +63,17 @@ def muster_anzeigen(column, width, height):
 
 
 
-def Text(event):
+def Text(event):    #erstellen des Textes
     global column
     print("Texteingabe")
-    if (e1.get() == ""):
+    if (e1.get() == ""):    #Warnung
         tki.messagebox.showinfo(message='Bitte geben sie einen Text ein', title='Achtung')
     else:
         b = e1.get()
         img = Image.new('RGBA', (14 * len(b), height),
-                        color='black')
+                        color='black')      #schwarzes Bld erstellen
 
         if platform == "linux" or platform == "linux2":
-            #fnt = ImageFont.truetype('/media/A020-3868/calibri.ttf', 25)  # Schriftart wählen, Dateipfad angeben
             fnt = ImageFont.truetype('/usr/share/fonts/truetype/crosextra/Caladea-Regular.ttf', 25)  # Calibir ist auf raspi nicht vorhanfen
         else:
             fnt = ImageFont.truetype('C:\Windows\Fonts\Calibri.ttf', 25)  # Schriftart wählen, Dateipfad angeben
