@@ -11,7 +11,7 @@ def LEDAnzeigen(column, width, height,pixels,zeitderPause):
             pixels[y] = ((column[x][y3], column[x][y3 + 1], column[x][y3 + 2]))
 
         pixels.show()
-        time.sleep(zeitderPause)
+        time.sleep(1)
 
     pixels.fill((0, 0, 0))
     pixels.show()
