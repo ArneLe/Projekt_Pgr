@@ -62,8 +62,6 @@ def muster_anzeigen(column, width, height):
 
     root1.mainloop()
 
-def drop(event):
-    tki.entry_sv.set(event.data)
 
 
 def Text(event):
