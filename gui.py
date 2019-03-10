@@ -165,9 +165,9 @@ def Muster(event):
         e=255
         f=255
     if (Farbe2_Muster1.get()=="grün"):
-        a=255
-        b=0
-        c=0
+        d=255
+        e=0
+        f=0
     if (Farbe2_Muster1.get()=="hellblau"):
         d=255
         e=0
