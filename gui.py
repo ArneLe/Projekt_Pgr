@@ -255,8 +255,11 @@ def _from_rgb(rgb):
 
 
 def fileoeffnen(event):
-    root.filename = tki.filedialog.askopenfilename(initialdir="/", title="selectfile",
-                                               filetypes=(("jpeg files", "*.jpg;*.jpeg;*.png"), ("all files", "*.*")))
+    if platform == "linux" or platform == "linux2":
+        root.filename = tki.filedialog.askopenfilename(initialdir="/media/pi", title="selectfile",filetypes=(("jpeg files", "*.jpg;*.jpeg;*.png"), ("all files", "*.*")))
+    else:
+        root.filename = tki.filedialog.askopenfilename(initialdir="/", title="selectfile",filetypes=(("jpeg files", "*.jpg;*.jpeg;*.png"), ("all files", "*.*")))
+
     label_ausgewaehlteDatei = tki.Label(bildframe, text=root.filename)
     label_ausgewaehlteDatei.grid(row=5, column=0)
     global c
