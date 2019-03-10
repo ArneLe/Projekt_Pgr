@@ -105,7 +105,82 @@ def Text(event):
 def Muster(event):
 
     global column
+    if (Farbe1_Muster1.get()=="rot"):
+        print('Farbe rot')
+        a=0
+        b=255
+        c=0
+    if (Farbe1_Muster1.get()=="pink"):
+        a=0
+        b=255
+        c=255
+    if (Farbe1_Muster1.get()=="weiß"):
+        a=255
+        b=255
+        c=255
+    if (Farbe1_Muster1.get()=="grün"):
+        a=255
+        b=0
+        c=0
+    if (Farbe1_Muster1.get()=="hellblau"):
+        a=255
+        b=0
+        c=255
+    if (Farbe1_Muster1.get()=="schwarz"):
+        a=0
+        b=0
+        c=0
+    if (Farbe1_Muster1.get()=="dunkelblau"):
+        a=0
+        b=0
+        c=255
+    if (Farbe1_Muster1.get()=="gelb"):
+        a=255
+        b=255
+        c=0
+    if (Farbe1_Muster1.get()=="orange"):
+        a=125
+        b=255
+        c=0
 
+    if (Farbe2_Muster1.get()=="rot"):
+        d=0
+        e=255
+        f=0
+    if (Farbe2_Muster1.get()=="pink"):
+        d=0
+        e=255
+        f=255
+    if (Farbe1_Muster1.get()=="weiß"):
+        d=255
+        e=255
+        f=255
+    if (Farbe2_Muster1.get()=="grün"):
+        a=255
+        b=0
+        c=0
+    if (Farbe2_Muster1.get()=="hellblau"):
+        d=255
+        e=0
+        f=255
+    if (Farbe2_Muster1.get()=="schwarz"):
+        d=0
+        e=0
+        f=0
+    if (Farbe2_Muster1.get()=="dunkelblau"):
+        d=0
+        e=0
+        f=255
+    if (Farbe2_Muster1.get()=="gelb"):
+        d=255
+        e=255
+        f=0
+    if (Farbe2_Muster1.get()=="orange"):
+        d=125
+        e=255
+        f=0
+        
+    Farbe2_Muster1.get()
     print('Muster')
     m = var1.get() + int(var2.get()) + int(var3.get()) + int(var4.get()) + int(var5.get())
     print(m)
@@ -113,7 +188,7 @@ def Muster(event):
     if (m != 1):
         tki.messagebox.showinfo(message='Bitte nur ein Muster auswählen', title='Achtung')
     elif (var1.get() == 1):  # waagerecht
-        column = muster1.waagerecht(width, height, column, 233, 1, 33, 66, 231, 0)
+        column = muster1.waagerecht(width, height, column, a, b, c, d, e, f)
         print("Muster 1")
     elif (var2.get() == 1):  # senkrecht
 
@@ -122,7 +197,7 @@ def Muster(event):
         column = muster1.saw(width, height, column)
         print("Muster 3")
     elif (var4.get() == 1):  # kleines Karo
-        column = muster1.karo(width, height, column, 255, 255, 0, 145, 122, 255) #rgb werte der beiden Farben
+        column = muster1.karo(width, height, column, a, b, c, d, e, f) #rgb werte der beiden Farben
         print("Muster 4")
     elif (var5.get() == 1):  # großes Karo
         print("Muster 5")
@@ -356,61 +431,7 @@ Dropdown_Farbe2_Muster1 = tki.OptionMenu(musterframe, Farbe2_Muster1, "rot", "pi
 Dropdown_Farbe2_Muster1.config(width=8)  # legt die breite fest, damit diese nicht mit der Länge des Wortes variiert
 Dropdown_Farbe2_Muster1.grid(row=5, column=1)
 
-Farbe1_Muster2 = tki.StringVar(root)
-Farbe1_Muster2.set("Farbe 1")  # default value
-Dropdown_Farbe1_Muster2 = tki.OptionMenu(musterframe, Farbe1_Muster2, "rot", "pink", "weiß", "grün", "hellblau", "schwarz",
-                                     "dunkelblau", "gelb", "orange")
-Dropdown_Farbe1_Muster2.config(width=8)  # legt die breite fest, damit diese nicht mit der Länge des Wortes variiert
-Dropdown_Farbe1_Muster2.grid(row=4, column=2)
 
-Farbe2_Muster2 = tki.StringVar(root)
-Farbe2_Muster2.set("Farbe 2")  # default value
-Dropdown_Farbe2_Muster2 = tki.OptionMenu(musterframe, Farbe2_Muster2, "rot", "pink", "weiß", "grün", "hellblau", "schwarz",
-                                     "dunkelblau", "gelb", "orange")
-Dropdown_Farbe2_Muster2.config(width=8)  # legt die breite fest, damit diese nicht mit der Länge des Wortes variiert
-Dropdown_Farbe2_Muster2.grid(row=5, column=2)
-
-Farbe1_Muster3 = tki.StringVar(root)
-Farbe1_Muster3.set("Farbe 1")  # default value
-Dropdown_Farbe1_Muster3 = tki.OptionMenu(musterframe, Farbe1_Muster3, "rot", "pink", "weiß", "grün", "hellblau", "schwarz",
-                                     "dunkelblau", "gelb", "orange")
-Dropdown_Farbe1_Muster3.config(width=8)  # legt die breite fest, damit diese nicht mit der Länge des Wortes variiert
-Dropdown_Farbe1_Muster3.grid(row=4, column=3)
-
-Farbe2_Muster3 = tki.StringVar(root)
-Farbe2_Muster3.set("Farbe 2")  # default value
-Dropdown_Farbe2_Muster3 = tki.OptionMenu(musterframe, Farbe2_Muster3, "rot", "pink", "weiß", "grün", "hellblau", "schwarz",
-                                     "dunkelblau", "gelb", "orange")
-Dropdown_Farbe2_Muster3.config(width=8)  # legt die breite fest, damit diese nicht mit der Länge des Wortes variiert
-Dropdown_Farbe2_Muster3.grid(row=5, column=3)
-
-Farbe1_Muster4 = tki.StringVar(root)
-Farbe1_Muster4.set("Farbe 1")  # default value
-Dropdown_Farbe1_Muster4 = tki.OptionMenu(musterframe, Farbe1_Muster4, "rot", "pink", "weiß", "grün", "hellblau", "schwarz",
-                                     "dunkelblau", "gelb", "orange")
-Dropdown_Farbe1_Muster4.config(width=8)  # legt die breite fest, damit diese nicht mit der Länge des Wortes variiert
-Dropdown_Farbe1_Muster4.grid(row=4, column=4)
-
-Farbe2_Muster4 = tki.StringVar(root)
-Farbe2_Muster4.set("Farbe 2")  # default value
-Dropdown_Farbe2_Muster4 = tki.OptionMenu(musterframe, Farbe2_Muster4, "rot", "pink", "weiß", "grün", "hellblau", "schwarz",
-                                     "dunkelblau", "gelb", "orange")
-Dropdown_Farbe2_Muster4.config(width=8)  # legt die breite fest, damit diese nicht mit der Länge des Wortes variiert
-Dropdown_Farbe2_Muster4.grid(row=5, column=4)
-
-Farbe1_Muster5 = tki.StringVar(root)
-Farbe1_Muster5.set("Farbe 1")  # default value
-Dropdown_Farbe1_Muster5 = tki.OptionMenu(musterframe, Farbe1_Muster5, "rot", "pink", "weiß", "grün", "hellblau", "schwarz",
-                                     "dunkelblau", "gelb", "orange")
-Dropdown_Farbe1_Muster5.config(width=8)  # legt die breite fest, damit diese nicht mit der Länge des Wortes variiert
-Dropdown_Farbe1_Muster5.grid(row=4, column=5)
-
-Farbe2_Muster5 = tki.StringVar(root)
-Farbe2_Muster5.set("Farbe 2")  # default value
-Dropdown_Farbe2_Muster5 = tki.OptionMenu(musterframe, Farbe2_Muster5, "rot", "pink", "weiß", "grün", "hellblau", "schwarz",
-                                     "dunkelblau", "gelb", "orange")
-Dropdown_Farbe2_Muster5.config(width=8)  # legt die breite fest, damit diese nicht mit der Länge des Wortes variiert
-Dropdown_Farbe2_Muster5.grid(row=5, column=5)
 
 # Checkboxen
 var1 = tki.IntVar()
