@@ -216,7 +216,8 @@ def Muster(event):
     elif (var4.get() == 1):  # kleines Karo
         column = muster1.karo(int(entry_pixel.get()), height, column, a, b, c, d, e, f) #rgb werte der beiden Farben
         print("Muster 4")
-    elif (var5.get() == 1):  # REGENBOGEN
+    elif (var5.get() == 1): # REGENBOGEN
+        column = muster1.regenbogen(width, height, column)
         print("Muster 5")
 
 def Bild2(event):
