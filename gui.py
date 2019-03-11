@@ -281,6 +281,7 @@ if platform == "linux" or platform == "linux2":
 
 
 root = tki.Tk()
+root.title('Lichtpinsel')
 
 
 topframe = tki.Frame(root)
