@@ -231,9 +231,10 @@ def Bild2(event):
     # np.asarray(i) muss umgerechnet werden
     coulumnbild = np.asarray(i)
 
-
+    global width
     print(coulumnbild)
     width = int(newWidth)
+    ArrayErstellen()
 
     for x in range(0, width, +1):
         for y in range(0, height, +1):
