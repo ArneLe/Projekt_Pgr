@@ -27,6 +27,7 @@ height = 34
 
 def ArrayErstellen():
     global column
+    colum = None            # löscht alle Daten die noch in derm Array seien könnten
     column = [0 for x in range(width)]  # erstellen vom Array
     for x in range(width):
         column[x] = bytearray(height * 3 + 1)
@@ -218,7 +219,7 @@ def Muster(event):
 def Bild2(event):
     print('Bild')
 
-    i = Image.open(c[:]).convert('RGB')  # Hier muss der Dateipfad des Bildes angegeben werden oder via Drag and Drop
+    i = Image.open(c[:]).convert('RGB')  # Hier muss der Dateipfad des Bildes angegeben werden
     iar = np.asarray(i)  # Image Array
     print(iar)  # gibt das Array aus
 
@@ -243,8 +244,8 @@ def Bild2(event):
 
 
     print('2:', column)  # zur Überprüfung
-    plt.imshow(column)
-    plt.show()
+    #plt.imshow(column)
+    #plt.show()
 
 
 def ShowColour(event):      #Farbvorschau
