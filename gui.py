@@ -105,8 +105,8 @@ def Text(event):    #erstellen des Textes
                 column[x][y3 + 1] = coulumnbild[y][x][1]
                 column[x][y3 + 2] = coulumnbild[y][x][2]
 
-        plt.imshow(column)
-        plt.show()
+        #plt.imshow(column)
+       # plt.show()
 
 
 
